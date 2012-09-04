@@ -27,6 +27,12 @@ public class SipUploadedFile implements Serializable {
     private String name;
     private String mime;
     private long length_;
+    private String path;
+    @OneToOne
+    private ResultFile resultFile;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
+    private User owner;
     @Transient
     private byte[] data_;
     @Transient
@@ -63,12 +69,6 @@ public class SipUploadedFile implements Serializable {
     public void setResultFile(ResultFile resultFile) {
         this.resultFile = resultFile;
     }
-    private String path;
-    @OneToOne
-    private ResultFile resultFile;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @NotNull
-    private User owner;
 
     public byte[] getData_() {
         return data_;

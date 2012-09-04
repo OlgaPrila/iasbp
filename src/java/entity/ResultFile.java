@@ -20,6 +20,14 @@ public class ResultFile implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String path;
+    private String name;
+    private String mime;
+    private long length_;
+    @Transient
+    private byte[] data_;
+    @OneToOne
+    private SipUploadedFile sipUploadedFile;
 
     public byte[] getData_() {
         return data_;
@@ -52,14 +60,7 @@ public class ResultFile implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    private String path;
-    private String name;
-    private String mime;
-    private long length_;
-    @Transient
-    private byte[] data_;
-    @OneToOne
-    private SipUploadedFile sipUploadedFile;
+    
 
     public SipUploadedFile getSipUploadedFile() {
         return sipUploadedFile;
