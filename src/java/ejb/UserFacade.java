@@ -8,6 +8,7 @@ import entity.QueryNames;
 import entity.User;
 import java.util.List;
 import javax.ejb.EJBException;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,9 +19,10 @@ import javax.persistence.Query;
  * @author olga
  */
 @Stateless
-public class UserFacade extends AbstractFacade<User> {
+@Local
+public class UserFacade extends AbstractFacade<User> implements IUserFacade {
 
-    @PersistenceContext(name = "IASBP-GridPU")
+    @PersistenceContext(name = "IASBP-test_PU")
     private EntityManager em;
 
     @Override

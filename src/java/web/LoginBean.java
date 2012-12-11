@@ -4,6 +4,7 @@
  */
 package web;
 
+import ejb.IUserFacade;
 import ejb.UserFacade;
 import entity.User;
 
@@ -33,7 +34,7 @@ public class LoginBean {
         this.userBean = userBean;
     }
 
-    public UserFacade getUf() {
+    public IUserFacade getUf() {
         return uf;
     }
 
@@ -41,7 +42,7 @@ public class LoginBean {
         this.uf = uf;
     }
     @EJB
-    private UserFacade uf;
+    private IUserFacade uf;
     @ManagedProperty("#{userBean}")
     private web.UserBean userBean;
     @ManagedProperty("#{sipFileUploadBean}")

@@ -21,7 +21,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class UploadedFileFacade extends AbstractFacade<SipUploadedFile> {
 
-    @PersistenceContext(unitName = "IASBP-GridPU")
+    @PersistenceContext(unitName = "IASBP-test_PU")
     private EntityManager em;
 
     @Override

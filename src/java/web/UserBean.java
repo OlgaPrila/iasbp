@@ -4,6 +4,7 @@
  */
 package web;
 
+import ejb.IUserFacade;
 import ejb.UserFacade;
 import entity.User;
 import entity.UserRole;
@@ -45,7 +46,7 @@ public class UserBean {
         this.passwd = passwd;
     }
     @EJB
-    private UserFacade userFacade;
+    private IUserFacade userFacade;
 
     public UserBean(String login, String passwd) {
         this.login = login;

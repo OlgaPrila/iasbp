@@ -19,7 +19,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ResultFileFacade extends AbstractFacade<ResultFile> {
 
-    @PersistenceContext(unitName = "IASBP-GridPU")
+    @PersistenceContext(unitName = "IASBP-test_PU")
     private EntityManager em;
 
     @Override

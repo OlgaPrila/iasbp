@@ -13,7 +13,7 @@ import javax.persistence.*;
  * @author olga
  */
 @Entity
-@Table(name = "USR")
+@Table(name = "USRTEST")
 @NamedQueries({
     @NamedQuery(name = QueryNames.USER_GET_BY_LOGIN_PASSWD, query = "SELECT x FROM User x WHERE x.login = ?1 AND x.passwd = ?2"),
     @NamedQuery(name = QueryNames.USER_GET_BY_LOGIN, query = "SELECT x FROM User x WHERE x.login = ?1")})
@@ -23,9 +23,9 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
+    @Column
     private String login;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private UserRole iasbpRole = UserRole.USER;
 
     public UserRole getIasbpRole() {
@@ -99,6 +99,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.USR[ id=" + id + " ]";
+        return "entity.USRTEST[ id=" + id + " ]";
     }
 }
