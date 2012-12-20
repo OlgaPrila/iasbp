@@ -14,12 +14,8 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
     @NamedQuery(name = QueryNames.RESULT_GET_BY_NAME, query = "SELECT x FROM ResultFile x WHERE x.name = ?1")})
-public class ResultFile implements Serializable {
+public class ResultFile extends DomainObject {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String path;
     private String name;
     private String mime;
@@ -60,7 +56,6 @@ public class ResultFile implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
 
     public SipUploadedFile getSipUploadedFile() {
         return sipUploadedFile;
@@ -78,36 +73,5 @@ public class ResultFile implements Serializable {
         this.path = path;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ResultFile)) {
-            return false;
-        }
-        ResultFile other = (ResultFile) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.ResultFile[ id=" + id + " ]";
-    }
+   
 }

@@ -4,6 +4,7 @@
  */
 package ejb;
 
+import entity.DomainObject;
 import javax.ejb.Local;
 
 /**
@@ -11,7 +12,7 @@ import javax.ejb.Local;
  * @author olga
  */
 @Local
-interface IAbstractFacade<T> {
+interface IAbstractFacade<T extends DomainObject> {
 
     public void create(T entity);
 

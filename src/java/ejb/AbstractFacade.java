@@ -13,6 +13,7 @@
  */
 package ejb;
 
+import entity.DomainObject;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -21,7 +22,7 @@ import javax.persistence.EntityManager;
  *
  * @author ian
  */
-public abstract class AbstractFacade<T> {
+public abstract class AbstractFacade<T extends DomainObject> {
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
